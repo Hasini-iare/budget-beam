@@ -7,21 +7,18 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-
   #export-csv {
   color: white !important;
   }
   #export-csv i {
   color: white !important;
   }
-
-    /* ---------- Root / Theme ---------- */
     :root{
       --bg: #f6f8fb;
       --card: #ffffff;
       --muted: #6b7280;
-      --accent: #6f7cff; /* soft indigo */
-      --accent-2: #36c6b6; /* teal */
+      --accent: #6f7cff; 
+      --accent-2: #36c6b6; 
       --danger: #ff6b6b;
       --glass: rgba(255,255,255,0.6);
       --radius: 14px;
@@ -29,8 +26,6 @@
       --maxw: 1200px;
       color-scheme: light;
     }
-
-    /* Dark mode support (prefers-color-scheme) */
     @media (prefers-color-scheme: dark) {
       :root{
         --bg: #0f1724;
@@ -50,17 +45,12 @@
   --shadow: 0 6px 20px rgba(2,6,23,0.6);
   color-scheme: dark;
 }
-
 .dark #toggle-theme i {
   color: white;
 }
-
-
 .dark body {
   color: #e6eef8;
 }
-
-
     *{box-sizing: border-box}
     body{
       margin:0;
@@ -80,8 +70,6 @@
       gap:24px;
       align-items:start;
     }
-
-    /* Sidebar */
     .sidebar{
       background:var(--card);
       border-radius:var(--radius);
@@ -106,8 +94,6 @@
     .menu{margin-top:18px}
     .menu button{width:100%;text-align:left;padding:10px;border-radius:10px;border:0;background:transparent;color:var(--muted);display:flex;gap:10px;align-items:center}
     .menu button.active{background:linear-gradient(90deg,rgba(111,124,255,0.09),transparent);color:var(--accent)}
-
-    /* Main area */
     .main{
       display:flex;flex-direction:column;gap:18px;
     }
@@ -123,27 +109,19 @@
     .cards-row{display:flex;gap:12px}
     .card .title{font-size:13px;color:var(--muted);}
     .card .value{font-weight:700;font-size:20px;margin-top:6px}
-
-    /* Transactions table */
     .transactions{overflow:auto}
     table{width:100%;border-collapse:collapse}
     th,td{padding:10px;text-align:left;font-size:14px}
     thead th{color:var(--muted);font-size:12px}
     tbody tr{border-top:1px solid rgba(15,23,42,0.04)}
     .category{display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px}
-
-    /* Forms & modal */
     .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.4);display:flex;align-items:center;justify-content:center}
     .modal{width:520px;background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
     .form-row{display:flex;gap:10px;margin-bottom:10px}
     .form-row .half{flex:1}
-
-    /* Change placeholder + inner date text color to white */
     input[type="date"] {
     color: #ffffff;
     }
-
-/* Chrome, Edge, Safari */
     input[type="date"]::-webkit-datetime-edit {
     color: #ffffff;
   }
@@ -154,14 +132,9 @@
   input[type="date"]::-webkit-datetime-edit-year-field {
   color: #ffffff;
   }
-
-/* Calendar icon */
   input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
   }
-
-
-    /* responsive */
     @media (max-width:980px){
       .container{grid-template-columns:1fr;}
       .sidebar{position:relative;height:auto}
@@ -171,12 +144,8 @@
       .grid{grid-template-columns:1fr}
       .cards-row{flex-direction:column}
     }
-    
-    /* small helpers */
     .pill{padding:6px 10px;border-radius:999px;background:rgba(111,124,255,0.09);color:var(--accent);font-weight:700}
     .text-muted{color:var(--muted)}
-
-    /* budget progress */
     .progress{height:12px;background:rgba(15,23,42,0.06);border-radius:999px;overflow:hidden}
     .progress > i{display:block;height:100%;border-radius:999px}
 
@@ -206,7 +175,6 @@
         </div>
         <p class="small" id="summary-text">0 incomes • 0 expenses</p>
       </div>
-
       <div class="menu">
         <button class="active" data-view="dashboard"><i class='bx bx-grid-alt'></i> Dashboard</button>
         <button data-view="transactions"><i class='bx bx-wallet'></i> Transactions</button>
@@ -237,7 +205,6 @@
         </ul>
       </div>
     </aside>
-
     <main class="main">
       <div class="topbar">
         <div style="display:flex;gap:12px;align-items:center">
@@ -252,27 +219,23 @@
           <button class="ghost" id="toggle-theme"><i class='bx bx-moon'></i></button>
         </div>
       </div>
-
       <div class="grid">
         <div class="card">
           <div class="title">Income (this month)</div>
           <div class="value" id="income-value">₹0</div>
           <div class="text-muted" id="income-count">0 items</div>
         </div>
-
         <div class="card">
           <div class="title">Expenses (this month)</div>
           <div class="value" id="expense-value">₹0</div>
           <div class="text-muted" id="expense-count">0 items</div>
         </div>
-
         <div class="card">
           <div class="title">Savings</div>
           <div class="value" id="savings-value">₹0</div>
           <div class="text-muted">Calculated as income - expenses</div>
         </div>
       </div>
-
       <div class="cards-row">
         <div class="card" style="flex:1">
           <div style="display:flex;justify-content:space-between;align-items:center">
@@ -286,7 +249,6 @@
           </div>
           <canvas id="categoryChart" style="max-height:300px;margin-top:8px"></canvas>
         </div>
-
         <div class="card" style="width:360px">
           <div class="title">Recent transactions</div>
           <div class="transactions" style="margin-top:8px">
@@ -297,7 +259,6 @@
           </div>
         </div>
       </div>
-
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <div>
@@ -307,11 +268,8 @@
         </div>
         <canvas id="timelineChart" style="margin-top:8px;max-height:260px"></canvas>
       </div>
-
     </main>
   </div>
-
-  <!-- Modal: Add / Edit Transaction -->
   <div id="modal" style="display:none" class="modal-backdrop">
     <div class="modal" role="dialog" aria-modal="true">
       <h3 id="modal-title">Add transaction</h3>
@@ -336,13 +294,11 @@
   </div>
 
   <script>
-    /* ---------- Data Model & Persistence ---------- */
     const LS_KEY = 'budgetbeam-data-v1';
     let state = {
       transactions: [],
       budget: 0
     };
-
     function load(){
       try{
         const raw = localStorage.getItem(LS_KEY);
@@ -352,8 +308,6 @@
     function save(){
       localStorage.setItem(LS_KEY, JSON.stringify(state));
     }
-
-    // sample categories & sample data to make the UI look nice on first load
     function seedIfEmpty(){
       if(state.transactions.length===0){
         const now = new Date();
@@ -370,8 +324,6 @@
     }
 
     function idgen(){return 't_'+Math.random().toString(36).slice(2,9)}
-
-    /* ---------- UI Wiring ---------- */
     const elements = {};
     document.addEventListener('DOMContentLoaded',()=>{
       // elements
@@ -402,14 +354,10 @@
       elements.monthlyBudget = document.getElementById('monthly-budget');
       elements.setBudget = document.getElementById('set-budget');
       elements.toggleTheme = document.getElementById('toggle-theme');
-
-      // charts
       ctxCat = document.getElementById('categoryChart').getContext('2d');
       ctxTimeline = document.getElementById('timelineChart').getContext('2d');
 
       load(); seedIfEmpty(); renderAll();
-
-      // events
       elements.addBtn.addEventListener('click',()=>openModal());
       elements.cancelModal.addEventListener('click',closeModal);
       elements.saveTx.addEventListener('click',saveTransaction);
@@ -422,8 +370,6 @@
       });
       document.getElementById('refresh-chart').addEventListener('click',()=>{drawCategoryChart(); drawTimelineChart()});
       elements.toggleTheme.addEventListener('click',toggleTheme);
-
-      // sidebar nav
       document.querySelectorAll('.menu button').forEach(btn=>btn.addEventListener('click',()=>{
         document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
@@ -431,8 +377,6 @@
         document.querySelector('.topbar .pill').textContent = v === 'dashboard' ? 'This month' : v;
       }))
     });
-
-    /* ---------- Transactions UI ---------- */
     function openModal(tx){
       elements.modal.style.display='flex';
       if(tx){
@@ -488,8 +432,6 @@
       }).join('');
       elements.transactionsTbody.innerHTML = rows || '<tr><td colspan="5" class="text-muted">No transactions</td></tr>';
     }
-
-    /* ---------- Charts ---------- */
     let catChart=null, timelineChart=null;
     function drawCategoryChart(){
       const byCat = {};
@@ -526,13 +468,8 @@
         timelineChart.data.labels = labels; timelineChart.data.datasets[0].data = arr; timelineChart.update();
       }
     }
-
-    /* ---------- Helpers & Render ---------- */
     function renderAll(){
-      // filters
       const filtered = filteredTransactions();
-
-      // summary
       const incomes = state.transactions.filter(t=>t.type==='income');
       const expenses = state.transactions.filter(t=>t.type==='expense');
       const incomeSum = incomes.reduce((s,t)=>s+t.amount,0);
@@ -545,18 +482,11 @@
       elements.savingsValue.textContent = '₹'+format(balance);
       elements.incomeCount.textContent = `${incomes.length} items`;
       elements.expenseCount.textContent = `${expenses.length} items`;
-
-      // transactions
       renderTransactions(filtered);
-
-      // charts
       drawCategoryChart(); drawTimelineChart();
-
-      // budget
       const used = expenseSum; elements.budgetUsed.textContent = '₹'+format(used);
       const pct = state.budget>0 ? Math.min(100, Math.round(used / state.budget * 100)) : 0;
       elements.budgetProgress.querySelector('i').style.width = pct+'%';
-      // show alert if overspent
       if(state.budget>0 && used>state.budget){
         elements.budgetProgress.querySelector('i').style.background = 'linear-gradient(90deg,var(--danger),#ffb4b4)';
         if(!document.getElementById('budget-alert')){
@@ -564,8 +494,6 @@
           document.querySelector('.sidebar').appendChild(a);
         }
       }else{ elements.budgetProgress.querySelector('i').style.background = 'linear-gradient(90deg,var(--accent),var(--accent-2))'; const ex=document.getElementById('budget-alert'); if(ex) ex.remove(); }
-
-      // month label
       const d = new Date(); elements.monthName.textContent = d.toLocaleString(undefined,{month:'long',year:'numeric'});
 
       save();
@@ -585,7 +513,6 @@
     function escapeHtml(s){ return String(s).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]}); }
 
     function getCategoryColor(cat){
-      // deterministic pastel colors
       let h = 0; for(let i=0;i<cat.length;i++) h = (h*31 + cat.charCodeAt(i)) % 360;
       return `hsl(${h} 70% 60%)`;
     }
@@ -593,8 +520,6 @@
     function generateColors(n){
       const arr=[]; for(let i=0;i<n;i++){ arr.push(`hsl(${(i*47)%360} 70% 55%)`) } return arr;
     }
-
-    /* ---------- Export / Utilities ---------- */
     function exportCSV(){
       const rows = [['Title','Type','Category','Amount','Date']];
       state.transactions.forEach(t=>rows.push([t.title,t.type,t.category,t.amount,t.date]));
@@ -609,8 +534,7 @@
   const dark = document.documentElement.classList.contains("dark");
   icon.className = dark ? "bx bx-sun" : "bx bx-moon";
 }
-
-
   </script>
 </body>
 </html>
+
