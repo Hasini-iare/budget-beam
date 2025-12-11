@@ -1,27 +1,80 @@
-BUDGET BEAM
-BudgetBeam is a web application that enables users to track, visualize, and manage
-their personal finances effectively. It allows for recording expenses, setting budgets, and
-monitoring spending patterns over time. The platform promotes financial awareness,
-planning, and responsible money management through clear, interactive dashboards.
-1. Features / Functional Requirements:
-(a) Add, edit, and categorize income and expenses
-(b) Visual charts and summaries of spending patterns
-(c) Budget creation and alerts for overspending
-(d) Responsive design for desktop and mobile
-(e) Search and filter transactions by category or date
-2. Optional Enhancements:
-(a) Export reports to PDF or Excel
-(b) Interactive graphs with drill-down functionality
-(c) Integration with mock banking APIs for real-time data
-(d) Dark/light mode toggle for better usability
-3. Deliverables:
-(a) Source code (HTML, CSS, JS/React)
-(b) README file describing setup and functionality
-(c) Screenshots or demo video (optional)
-(d) GitHub repository link (optional)
-(e) Project report (10–20 pages) including introduction, features, design modules,
-and challenges faced
-4. Challenges:
-(a) Designing an intuitive dashboard for financial visualization
-(b) Handling dynamic data for expense tracking efficiently
-(c) Ensuring responsive and user-friendly interface
+BudgetBeam — Personal Finance Dashboard
+
+BudgetBeam is a simple, browser-based budgeting app that helps you keep track of your income, expenses, and monthly limits. Everything runs locally in your browser, so there’s nothing to install and no account to create.
+
+Features
+Add, edit, and delete transactions
+
+Log income and expenses with titles, categories, amounts, and dates.
+
+Live dashboard
+
+Your totals, savings, and balance update the moment you change anything.
+
+Spending breakdown
+
+A clean doughnut chart shows where your money is going by category.
+
+30-day spending view
+
+A daily bar chart gives you a quick look at your recent habits.
+
+Monthly budget tracking
+
+Set a monthly limit and watch your progress as you spend. If you go over, the dashboard lets you know.
+
+Search and filters
+
+Quickly narrow down transactions by name, category, or date range.
+
+Local data storage
+
+All data is saved in your browser using LocalStorage. Nothing leaves your device.
+
+Light/Dark mode
+
+Switch themes anytime with a single click.
+
+CSV export
+
+Download all your transactions in one file for backup or further analysis.
+
+Tech Stack
+
+HTML, CSS, JavaScript
+
+Chart.js
+
+Boxicons
+
+LocalStorage
+
+How to Use
+
+Add your income and expenses using the form.
+
+Watch your dashboard update automatically.
+
+Use filters to find specific entries.
+
+Export your data as a CSV file if you want a backup.
+
+Toggle between light and dark mode whenever you like.
+
+Why This Project Exists
+
+I built BudgetBeam to create a budgeting tool that’s clean, fast, and doesn’t force you to sign up for anything. It’s meant to be simple enough for everyday tracking but still helpful and visual.
+
+Future Ideas
+
+Recurring transactions
+
+Custom category colors
+
+Summary reports across multiple months
+
+Optional cloud sync
+
+License
+
+MIT License — free to use, modify, and share.
